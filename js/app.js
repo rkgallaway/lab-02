@@ -41,8 +41,14 @@ Images.loadPics= () => {
 }
 
 const dropmenu = function() {
-  Images.allPics.forEach((instance) => {
-    $('select').append($('<option>', {text: instance.keyword}));
+  const items = [];
+  Images.allPic.forEach(value => {
+    if (!items.includes(value.keyword)){
+      items.push(value.keyword)
+    }
+  })
+  items.forEach((ele) => {
+    $('select').append($('<option>', {text: ele}));
   })
 }
 
