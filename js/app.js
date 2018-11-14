@@ -25,7 +25,7 @@ Images.prototype.render = function() {
   picClone.attr('class', this.keyword);
 }
 
-Image.readJson = () => {
+Images.readJson = () => {
   $.get('data/page-1.json', 'json')
     .then(data => {
       data.forEach(obj => {
