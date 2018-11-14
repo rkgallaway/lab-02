@@ -53,3 +53,10 @@ const dropmenu = function() {
 }
 
 $(() => Images.readJson());
+
+// select menu filtering
+$('select').on('change', function(){
+  let $selection = $(this).val();
+  $('div').hide()
+  $(`div'[img="${$selection}"]`).show() //div has no class so this isnt working and need to work with it more so that only selected items show
+})
