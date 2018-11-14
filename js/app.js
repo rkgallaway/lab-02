@@ -33,10 +33,17 @@ Images.readJson = () => {
       })
     })
     .then(Images.loadPics)
+    .then(dropmenu)
 } 
 
 Images.loadPics= () => {
   Images.allPic.forEach(pic => pic.render())
+}
+
+const dropmenu = function() {
+  Images.allPics.forEach((instance) => {
+    $('select').append($('<option>', {text: instance.keyword}));
+  })
 }
 
 $(() => Images.readJson());
