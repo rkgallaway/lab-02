@@ -14,7 +14,7 @@ Images.prototype.render = function() {
   $('main').append('<div class="clone"></div>');
   let picClone = $('div[class="clone"]');
 
-  let picHtml = $('#photo-template').html();
+  let picHtml = $('#photo-template1').html();
 
   picClone.html(picHtml)
 
@@ -25,8 +25,9 @@ Images.prototype.render = function() {
   picClone.attr('class', this.keyword);
 }
 
-Images.readJson = () => {
-  $.get('data/page-1.json', 'json')
+Images.readJson = (pageNumber) => {
+  Images.allPic = [];
+  $.get(`data/page-${pageNumber}.json`, 'json')
     .then(data => {
       data.forEach(obj => {
         Images.allPic.push(new Images(obj));
@@ -52,7 +53,8 @@ const dropmenu = function() {
   })
 }
 
-$(() => Images.readJson());
+$(() => Images.readJson(1));
+// $(() => Images.readJson(2));
 
 // select menu filtering
 $('select').on('change', function(){
@@ -60,3 +62,22 @@ $('select').on('change', function(){
   $('div').hide()
   $(`div[class="${$selection}"]`).show() 
 })
+
+$('li').on('click', function() {
+  let $whereToGo = $(this).attr('id');
+  console.log($whereToGo);
+  $('main div').hide();
+  Images.readJson($whereToGo);
+  // $('main').show();
+  // $('#' + $whereToGo).fadeIn(500)
+})
+
+// $('nav a').on('click', function() {
+//   let $whereToGo = $(this).data('tab');
+//   // what is $whereToGo
+//   // gives us 'delegation' or 'attributes'
+//   console.log('$where to go', $whereToGo);
+//   $('.tab-content').hide();
+//   // we want $('#delegation')
+//   $('#' + $whereToGo).fadeIn(750)
+// }) this is from Sam icecream demo
