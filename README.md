@@ -55,4 +55,12 @@ Feature 1: Pagination::
 Estimate of Time to complete: 1.5hour
 Start time: 10:20am
 Finsih Time: 12.30 pm
-Actaul Time needed to complete: 2hr 10min
+Actual Time needed to complete: 2hr 10min
+
+
+Feature 2: Templating:  
+Estimate of Time to complete: 1 hour
+Start time: 1:11 -hard stop and canvas submits at 1:40 --resume:
+Finsih Time: 
+Actual Time needed to complete: 
+
