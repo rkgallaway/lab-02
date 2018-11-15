@@ -35,3 +35,11 @@ Estimate of Time to complete: 1 hour
 Start time: 9:50pm-Ryan
 Finsih Time: 10:05pm-Ryan
 Actaul Time needed to complete: 15 min-Ryan
+
+Siobhan's work from home
+Feature 3: Style and Application:
+Siobhan Niess set the google font
+Estimate of Time to complete: 10 minutes
+Start time: 10:33pm
+Finish time: 10:45pm 
+Actual time needed to complete: 12 minutes
