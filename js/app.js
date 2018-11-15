@@ -10,6 +10,8 @@ function Images(pic) {
 
 Images.allPic = [];
 
+let pagePics = [];
+
 Images.prototype.render = function() {
   $('main').append('<div class="clone"></div>');
   let picClone = $('div[class="clone"]');
@@ -72,12 +74,17 @@ $('li').on('click', function() {
   // $('#' + $whereToGo).fadeIn(500)
 })
 
-// $('nav a').on('click', function() {
-//   let $whereToGo = $(this).data('tab');
-//   // what is $whereToGo
-//   // gives us 'delegation' or 'attributes'
-//   console.log('$where to go', $whereToGo);
-//   $('.tab-content').hide();
-//   // we want $('#delegation')
-//   $('#' + $whereToGo).fadeIn(750)
-// }) this is from Sam icecream demo
+Images.prototype.toHtml = function() {
+  // 1. Get the template from the HTML document
+  const source = $('#image-div-template').html();
+  // console.log(source);
+  // 2. Use Handlebars to "compile" the HTML
+  const template = Handlebars.compile(source);
+  // console.log('template', template);
+  // 3. Do not forget to return the HTML from this method
+  return template(this);
+ };
+
+Images.allPic.forEach(pic => {
+  pagePics.push(new Images(pic));
+}); //preliminary render handle bars 
