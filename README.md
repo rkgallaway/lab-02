@@ -43,3 +43,16 @@ Estimate of Time to complete: 10 minutes
 Start time: 10:33pm
 Finish time: 10:45pm 
 Actual time needed to complete: 12 minutes
+===============================================================================================
+Day 2: Paired with Siobhan Niess
+start: Ryan Gallaway documenting readme
+Nav: Ryan Gallaway 
+Driver: Siobhan Niess
+
+
+
+Feature 1: Pagination::
+Estimate of Time to complete: 1.5hour
+Start time: 10:20am
+Finsih Time: 12.30 pm
+Actaul Time needed to complete: 2hr 10min
