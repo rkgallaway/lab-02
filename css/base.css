@@ -1,0 +1,22 @@
+body {
+    width: 960px;
+    margin: 0px auto;
+    text-align: center;
+    background-color: lightgrey;
+}
+
+div {
+    float: left;
+    height: 500px;
+    width: 310px;
+    align-content: center;
+
+
+}
+
+img {
+    width: 300px;
+    border: 1px black solid;
+
+}
+
