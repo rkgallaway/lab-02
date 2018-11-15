@@ -21,7 +21,7 @@ Images.prototype.render = function() {
   picClone.find('h2').text(this.title);
   picClone.find('img').attr('src', this.image_url);
   picClone.find('p').text(this.description);
-  picClone.removeClass('clone');
+  // picClone.removeClass('clone');
   picClone.attr('class', this.keyword);
 }
 
@@ -48,7 +48,7 @@ const dropmenu = function() {
     }
   })
   items.forEach((ele) => {
-    $('select').append($('<option>', {text: ele}));
+    $('select').append($('<option>', {value: ele, text: ele}));
   })
 }
 
@@ -58,5 +58,5 @@ $(() => Images.readJson());
 $('select').on('change', function(){
   let $selection = $(this).val();
   $('div').hide()
-  $(`div'[img="${$selection}"]`).show() //div has no class so this isnt working and need to work with it more so that only selected items show
+  $(`div[class="${$selection}"]`).show() 
 })
