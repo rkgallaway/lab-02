@@ -75,6 +75,16 @@ const hornsDropDown = function() {
 
 $(() => Images.readJson(1));
 
+// below is new location  --same effect
+$('li').on('click', function() {
+  let $whereToGo = $(this).attr('id');
+  console.log($whereToGo);
+  //need to empty the select options when clicked. is repopulating that array
+  $('main div').hide();
+  Images.readJson($whereToGo);
+})
+//above is new location
+
 // keyword select menu filtering
 $('#keyword-search').on('change', function(){
   let $keywordSelection = $(this).val();
@@ -88,16 +98,17 @@ $('#keyword-search').on('change', function(){
 $('#horn-search').on('change', function(){
   let $hornSelection = $(this).val();
   $('main div').hide()
-  //change class to horn number? it is currently keyword. change and then it will render or add a diff identifier?
+  //change class to horn number? it is currently keyword. change and then it will render or add a diff identifier? add a 2nd class?
   $(`div[class="${$hornSelection}"]`).show() 
 })
 
-$('li').on('click', function() {
-  let $whereToGo = $(this).attr('id');
-  console.log($whereToGo);
-  //need to empty the select options when clicked. is repopulating that array
-  $('main div').hide();
-  Images.readJson($whereToGo);
-})
+//original location
+// $('li').on('click', function() {
+//   let $whereToGo = $(this).attr('id');
+//   console.log($whereToGo);
+//   //need to empty the select options when clicked. is repopulating that array
+//   $('main div').hide();
+//   Images.readJson($whereToGo);
+// })
 
 

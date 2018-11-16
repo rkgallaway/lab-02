@@ -67,7 +67,7 @@ Actual Time needed to complete: 1 hr 15 min
 
 Feature 3: Styling with Flexbox:  
 Estimate of Time to complete: 1 hour
-Start time:
+Start time: 8:35am
 Finsih Time: 
 Actual Time needed to complete: 
 
