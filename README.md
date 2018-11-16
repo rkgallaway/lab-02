@@ -73,6 +73,6 @@ Actual Time needed to complete: 24 min
 
 Feature 4: Sort the images:  
 Estimate of Time to complete: 1 hour
-Start time: Ryan worked on alonefrom 6:45pm - 7:45pm
-Finsih Time: 
-Actual Time needed to complete:
+Start time: Ryan worked on alone from 6:45pm - 7:45pm together: 9:10am
+Finsih Time: 11 am
+Actual Time needed to complete:2 hr 10 min together. 1 hour alone.
