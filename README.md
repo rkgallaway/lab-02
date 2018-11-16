@@ -60,7 +60,18 @@ Actual Time needed to complete: 2hr 10min
 
 Feature 2: Templating:  
 Estimate of Time to complete: 1 hour
-Start time: 1:11 -hard stop and canvas submits at 1:40 --resume:
+Start time: 1:11 -hard stop and canvas submits at 1:40 --resume: 5:39pm
+Finsih Time: 6:25 pm
+Actual Time needed to complete: 1 hr 15 min
+
+Feature 3: Styling with Flexbox:  
+Estimate of Time to complete: 1 hour
+Start time:
 Finsih Time: 
 Actual Time needed to complete: 
 
+Feature 4: Sort the images:  
+Estimate of Time to complete: 1 hour
+Start time: Ryan worked on alonefrom 6:45pm - 7:45pm
+Finsih Time: 
+Actual Time needed to complete:
