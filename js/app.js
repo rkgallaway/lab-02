@@ -78,6 +78,7 @@ $(() => Images.readJson(1));
 // keyword select menu filtering
 $('#keyword-search').on('change', function(){
   let $keywordSelection = $(this).val();
+  // $('#keyword-search').empty();  this how to empty but misplaced...
   $('main div').hide()
   $(`div[class="${$keywordSelection}"]`).show() 
 })

@@ -43,7 +43,8 @@ Estimate of Time to complete: 10 minutes
 Start time: 10:33pm
 Finish time: 10:45pm 
 Actual time needed to complete: 12 minutes
-===============================================================================================
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Day 2: Paired with Siobhan Niess
 start: Ryan Gallaway documenting readme
 Nav: Ryan Gallaway 
