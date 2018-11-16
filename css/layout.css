@@ -1,11 +1,20 @@
 header div {
-    height: 50px;
+    height: 75px;
+    width: 450px;
+}
+header ul{
+    list-style: none;
+}
+
+header li {
+    display: inline-block;
+    margin-right: 50px;
+
 }
 
 
 footer {
     margin: 0px auto;
     width: 960px;
-    text-align: right;
-    float: left;
+    /* float: right; */
 }
