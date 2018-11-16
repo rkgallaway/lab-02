@@ -10,9 +10,9 @@
     <link href="https://fonts.googleapis.com/css?family=Marcellus" rel="stylesheet">
 
     <script id="image-div-template" type="text/x-handlebars-template">
-      <div>
+      <div class={{keyword}}>
         <h2>{{title}}</h2>
-        <img src={{image_url}} alt={{description}} />
+        <img src={{image_url}} alt={{description}}>
         <p>{{description}}</p>
       </div>
     </script>
@@ -22,13 +22,13 @@
     <h1>The Gallery of Horns</h1>
       <header>
         <div>
-          <select id="lab1" class="page1">
+          <select id="keyword-search" class="page1">
             <option value="default">Filter by Keyword</option>
           </select>
         </div>
         <div>
-          <select id="lab2" class="page2">
-              <option value="default">Filter by Keyword</option>
+          <select id="horn-search" class="page2">
+              <option value="default">Number of Horns</option>
           </select>
         </div>
           <div>

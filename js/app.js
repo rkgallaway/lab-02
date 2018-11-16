@@ -10,8 +10,6 @@ function Images(pic) {
 
 Images.allPic = [];
 
-let pagePics = [];
-
 Images.prototype.render = function() {
   // $('main').append('<div class="clone"></div>');
   // let picClone = $('div[class="clone"]');
@@ -40,45 +38,65 @@ Images.readJson = (pageNumber) => {
     .then(data => {
       data.forEach(obj => {
         Images.allPic.push(new Images(obj));
-      })
+      });
     })
     .then(Images.loadPics)
-    .then(dropmenu)
+    .then(keywordDropDown)
+    .then(hornsDropDown)
 } 
 
-Images.loadPics= () => {
+Images.loadPics = () => {
   Images.allPic.forEach(pic => $('main').append(pic.render()));
-}
+};
 
-const dropmenu = function() {
-  const items = [];
+const keywordDropDown = function() {
+  const keywordItems = [];
   Images.allPic.forEach(value => {
-    if (!items.includes(value.keyword)){
-      items.push(value.keyword)
+    if (!keywordItems.includes(value.keyword)){
+      keywordItems.push(value.keyword)
     }
   })
-  items.forEach((ele) => {
-    $('select').append($('<option>', {value: ele, text: ele}));
+  keywordItems.forEach((ele) => {
+    $('#keyword-search').append($('<option>', {value: ele, text: ele}));
+  })
+}
+
+const hornsDropDown = function() {
+  const hornItems = [];  //make global variable?  and set array to zero on change when other items are hidden? however we'd need to on click functions?
+  Images.allPic.forEach(value => {
+    if (!hornItems.includes(value.horns)){
+      hornItems.push(value.horns)
+    }
+  })
+  hornItems.forEach((ele) => {
+    $('#horn-search').append($('<option>', {value: ele, text: ele}));
   })
 }
 
 $(() => Images.readJson(1));
-// $(() => Images.readJson(2));
 
-// select menu filtering
-$('select').on('change', function(){
-  let $selection = $(this).val();
-  $('div').hide()
-  $(`div[class="${$selection}"]`).show() 
+// keyword select menu filtering
+$('#keyword-search').on('change', function(){
+  let $keywordSelection = $(this).val();
+  $('main div').hide()
+  $(`div[class="${$keywordSelection}"]`).show() 
+})
+
+// horn select menu filtering
+
+$('#horn-search').on('change', function(){
+  let $hornSelection = $(this).val();
+  $('main div').hide()
+  //change class to horn number? it is currently keyword. change and then it will render or add a diff identifier?
+  $(`div[class="${$hornSelection}"]`).show() 
 })
 
 $('li').on('click', function() {
   let $whereToGo = $(this).attr('id');
   console.log($whereToGo);
+  //need to empty the select options when clicked. is repopulating that array
   $('main div').hide();
   Images.readJson($whereToGo);
-  // $('main').show();
-  // $('#' + $whereToGo).fadeIn(500)
 })
 
 
