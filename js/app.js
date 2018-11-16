@@ -11,24 +11,8 @@ function Images(pic) {
 Images.allPic = [];
 
 Images.prototype.render = function() {
-  // $('main').append('<div class="clone"></div>');
-  // let picClone = $('div[class="clone"]');
-
-  // let picHtml = $('#photo-template1').html();
-
-  // picClone.html(picHtml)
-
-  // picClone.find('h2').text(this.title);
-  // picClone.find('img').attr('src', this.image_url);
-  // picClone.find('p').text(this.description);
-  // // picClone.removeClass('clone');
-  // picClone.attr('class', this.keyword);
   const source = $('#image-div-template').html();
-  // console.log(source);
-  // 2. Use Handlebars to "compile" the HTML
   const template = Handlebars.compile(source);
-  // console.log('template', template);
-  // 3. Do not forget to return the HTML from this method
   return template(this);
 }
 
@@ -56,20 +40,21 @@ const keywordDropDown = function() {
       keywordItems.push(value.keyword)
     }
   })
+
   keywordItems.forEach((ele) => {
-    $('#keyword-search').append($('<option>', {value: ele, text: ele}));
+    $('#keyword-search').append($('<option>', {value: ele, text: ele, class: 'keyword-option'}));
   })
 }
 
 const hornsDropDown = function() {
-  const hornItems = [];  //make global variable?  and set array to zero on change when other items are hidden? however we'd need to on click functions?
+  const hornItems = [];  
   Images.allPic.forEach(value => {
     if (!hornItems.includes(value.horns)){
       hornItems.push(value.horns)
     }
   })
   hornItems.forEach((ele) => {
-    $('#horn-search').append($('<option>', {value: ele, text: ele}));
+    $('#horn-search').append($('<option>', {value: ele, text: ele, class: 'horn-option'}));
   })
 }
 
@@ -78,9 +63,10 @@ $(() => Images.readJson(1));
 // below is new location  --same effect
 $('li').on('click', function() {
   let $whereToGo = $(this).attr('id');
-  console.log($whereToGo);
-  //need to empty the select options when clicked. is repopulating that array
   $('main div').hide();
+  $('.keyword-option').remove();  
+  $('.horn-option').remove();  
+  Images.allPic = [];
   Images.readJson($whereToGo);
 })
 //above is new location
@@ -88,27 +74,20 @@ $('li').on('click', function() {
 // keyword select menu filtering
 $('#keyword-search').on('change', function(){
   let $keywordSelection = $(this).val();
-  // $('#keyword-search').empty();  this how to empty but misplaced...
-  $('main div').hide()
-  $(`div[class="${$keywordSelection}"]`).show() 
+  $('main div').hide(); 
+  $(`div[class="${$keywordSelection}"]`).show();
 })
 
 // horn select menu filtering
 
 $('#horn-search').on('change', function(){
-  let $hornSelection = $(this).val();
-  $('main div').hide()
-  //change class to horn number? it is currently keyword. change and then it will render or add a diff identifier? add a 2nd class?
-  $(`div[class="${$hornSelection}"]`).show() 
+  let $hornSelection = parseInt($(this).val());
+  $('main div').hide();  
+  for (let i = 0; i < Images.allPic.length; i++){
+    if (Images.allPic[i].horns === $hornSelection) {
+      $(`div[class="${Images.allPic[i].keyword}"]`).show()  
+    }
+  }
 })
-
-//original location
-// $('li').on('click', function() {
-//   let $whereToGo = $(this).attr('id');
-//   console.log($whereToGo);
-//   //need to empty the select options when clicked. is repopulating that array
-//   $('main div').hide();
-//   Images.readJson($whereToGo);
-// })
 
 
