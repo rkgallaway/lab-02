@@ -13,18 +13,25 @@ Images.allPic = [];
 let pagePics = [];
 
 Images.prototype.render = function() {
-  $('main').append('<div class="clone"></div>');
-  let picClone = $('div[class="clone"]');
+  // $('main').append('<div class="clone"></div>');
+  // let picClone = $('div[class="clone"]');
 
-  let picHtml = $('#photo-template1').html();
+  // let picHtml = $('#photo-template1').html();
 
-  picClone.html(picHtml)
+  // picClone.html(picHtml)
 
-  picClone.find('h2').text(this.title);
-  picClone.find('img').attr('src', this.image_url);
-  picClone.find('p').text(this.description);
-  // picClone.removeClass('clone');
-  picClone.attr('class', this.keyword);
+  // picClone.find('h2').text(this.title);
+  // picClone.find('img').attr('src', this.image_url);
+  // picClone.find('p').text(this.description);
+  // // picClone.removeClass('clone');
+  // picClone.attr('class', this.keyword);
+  const source = $('#image-div-template').html();
+  // console.log(source);
+  // 2. Use Handlebars to "compile" the HTML
+  const template = Handlebars.compile(source);
+  // console.log('template', template);
+  // 3. Do not forget to return the HTML from this method
+  return template(this);
 }
 
 Images.readJson = (pageNumber) => {
@@ -40,7 +47,7 @@ Images.readJson = (pageNumber) => {
 } 
 
 Images.loadPics= () => {
-  Images.allPic.forEach(pic => pic.render())
+  Images.allPic.forEach(pic => $('main').append(pic.render()));
 }
 
 const dropmenu = function() {
@@ -74,17 +81,4 @@ $('li').on('click', function() {
   // $('#' + $whereToGo).fadeIn(500)
 })
 
-Images.prototype.toHtml = function() {
-  // 1. Get the template from the HTML document
-  const source = $('#image-div-template').html();
-  // console.log(source);
-  // 2. Use Handlebars to "compile" the HTML
-  const template = Handlebars.compile(source);
-  // console.log('template', template);
-  // 3. Do not forget to return the HTML from this method
-  return template(this);
- };
 
-Images.allPic.forEach(pic => {
-  pagePics.push(new Images(pic));
-}); //preliminary render handle bars 
