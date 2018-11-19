@@ -30,6 +30,7 @@ Images.readJson = (pageNumber) => {
 } 
 
 Images.loadPics = () => {
+  $('#photo-template1').innerHTML = '';
   Images.allPic.forEach(pic => $('main').append(pic.render()));
 };
 
@@ -63,7 +64,7 @@ $(() => Images.readJson(1));
 // below is new location  --same effect
 $('li').on('click', function() {
   let $whereToGo = $(this).attr('id');
-  $('main div').hide();
+  $('main div').remove();
   $('.keyword-option').remove();  
   $('.horn-option').remove();  
   Images.allPic = [];
